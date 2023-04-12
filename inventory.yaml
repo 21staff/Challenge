@@ -1,0 +1,6 @@
+virtualmachines:
+  hosts:
+    webserver01:
+      ansible_host: localhost
+  vars:
+    ansible_user: agent

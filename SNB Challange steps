@@ -8,7 +8,6 @@ install python on host
 
 install pip
 
-Ich will anisble im docker container.
 
 Build docker container: docker build -t ansible:latest .
 Run docker container: 
@@ -24,9 +23,6 @@ Copy file from one location to another: https://docs.ansible.com/ansible/latest/
 
 Run playbook: 
 ansible-playbook playbook.yaml
-
-
-
 
 docker build --add-host host.docker.internal:host-gateway -t ansible:latest .
 docker build --network="host" -t ansible:latest .

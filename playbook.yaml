@@ -1,11 +1,11 @@
 ---
-- name: Copress and Move directory to destination
-  #hosts: virtualmachines #comment out 'connection: local' required
-  hosts: localhost
-  connection: local
+- name: Compress and Move directory to destination
+  hosts: virtualmachines
+  #hosts: localhost
+  #connection: local
   
   tasks:
-  - name: lone of main branch including solution for the callange given to Benjamin Bollhalter from SNB
+  - name: Clone of main branch including solution for the callenge given to Benjamin Bollhalter from SNB
     ansible.builtin.git:
       repo: https://github.com/21staff/Challenge.git
       dest: /tmp/challenge/repo
@@ -21,9 +21,6 @@
     ansible.builtin.copy:
       src: /tmp/challenge/Bollhalter_Benjamin_Challenge_14.04.2023.tgz
       dest: /media/agent/portable/Bollhalter_Benjamin_Challenge_14.04.2023.tgz
-      owner: agent
-     # group: users #Run 'compgen -g' to list user groups
-      mode: u=rw,g=r,o=r
       remote_src: true
       
   - name: Remove temporary file (delete file)

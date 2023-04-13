@@ -6,7 +6,7 @@
   connection: local
   
   tasks:
-  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+  - name: Compress directory /home/agent/Documents/Challenge/source/ into /home/agent/Documents/Challenge/source/arcived_source.tgz
     community.general.archive:
       path: /home/agent/Documents/Challenge/source/
       dest: /home/agent/Documents/Challenge/source/arcived_source.tgz

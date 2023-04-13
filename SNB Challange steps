@@ -1,3 +1,14 @@
 Install docker with https://docs.docker.com/engine/install/ubuntu/ using apt instead of vm in hope of having access to hardware resources
 
+Read https://docs.ansible.com/ansible/latest/collections/community/docker/docsite/scenario_guide.html#ansible-collections-community-docker-docsite-scenario-guide 
 
+Watch Youtube video for better understanding: https://www.simplilearn.com/tutorials/ansible-tutorial/what-is-ansible
+
+install python on host
+
+install pip
+
+Ich will anisble im docker container.
+
+docker build -t ansible:latest .
+docker run -t ansible

@@ -1,0 +1,20 @@
+---
+- name: Copress and Move directory to destination
+  #hosts: webservers
+  #remote_user: agent
+  hosts: localhost
+  connection: local
+  
+  tasks:
+  - name: Compress directory /path/to/foo/ into /path/to/foo.tgz
+    community.general.archive:
+      path: /home/agent/Documents/Challenge/source/
+      dest: /home/agent/Documents/Challenge/source/arcived_source.tgz
+
+  - name: Copy file with owner and permission, using symbolic representation
+    ansible.builtin.copy:
+      src: /home/agent/Documents/Challenge/source/arcived_source.tgz
+      dest: /home/agent/Documents/Challenge/target/arcived_source.tgz
+      owner: agent
+     # group: users #Run 'compgen -g' to list user groups
+      mode: u=rw,g=r,o=r

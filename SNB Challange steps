@@ -12,3 +12,9 @@ Ich will anisble im docker container.
 
 docker build -t ansible:latest .
 docker run -t ansible
+
+Gather information from the internet on how to create a playbook: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html
+
+Create compressed archive: https://docs.ansible.com/ansible/latest/collections/community/general/archive_module.html
+
+Copy file from one location to another: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html

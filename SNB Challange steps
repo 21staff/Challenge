@@ -11,8 +11,10 @@ install pip
 Ich will anisble im docker container.
 
 Build docker container: docker build -t ansible:latest .
-Run docker container: docker run -t -P ansible
-Change to shell of container: docker exec -it pensive_perlman sh
+Run docker container: 
+docker run -t ansible
+Change to shell of container: 
+docker exec -it pensive_perlman sh
 
 Gather information from the internet on how to create a playbook: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html
 
@@ -35,3 +37,7 @@ ansible virtualmachines -m ping -i inventory.yaml
 nano inventory.yaml
 ssh-copy-id agent@192.168.1.21
 ansible-playbook playbook.yaml -i inventory.yaml
+ssh-keygen
+ssh agent@192.168.1.21
+
+add git funtionality to be able to download and writ e the git repo of the presented code

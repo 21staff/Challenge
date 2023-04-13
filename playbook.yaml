@@ -1,20 +1,37 @@
 ---
 - name: Copress and Move directory to destination
-  #hosts: webservers
-  #remote_user: agent
+  #hosts: virtualmachines #comment out 'connection: local' required
   hosts: localhost
   connection: local
   
   tasks:
-  - name: Compress directory /home/agent/Documents/Challenge/source/ into /home/agent/Documents/Challenge/source/arcived_source.tgz
+  - name: lone of main branch including solution for the callange given to Benjamin Bollhalter from SNB
+    ansible.builtin.git:
+      repo: https://github.com/21staff/Challenge.git
+      dest: /tmp/challenge/repo
+      single_branch: yes
+      version: main
+      
+  - name: Compress directory /tmp/challenge/repo/ into /tmp/challenge/Bollhalter_Benjamin_Challenge_14.04.2023.tgz
     community.general.archive:
-      path: /home/agent/Documents/Challenge/source/
-      dest: /home/agent/Documents/Challenge/source/arcived_source.tgz
+      path: /tmp/challenge/repo/
+      dest: /tmp/challenge/Bollhalter_Benjamin_Challenge_14.04.2023.tgz
 
   - name: Copy file with owner and permission, using symbolic representation
     ansible.builtin.copy:
-      src: /home/agent/Documents/Challenge/source/arcived_source.tgz
-      dest: /media/agent/portable/arcived_source.tgz
+      src: /tmp/challenge/Bollhalter_Benjamin_Challenge_14.04.2023.tgz
+      dest: /media/agent/portable/Bollhalter_Benjamin_Challenge_14.04.2023.tgz
       owner: agent
      # group: users #Run 'compgen -g' to list user groups
       mode: u=rw,g=r,o=r
+      remote_src: true
+      
+  - name: Remove temporary file (delete file)
+    ansible.builtin.file:
+      path: /tmp/challenge/Bollhalter_Benjamin_Challenge_14.04.2023.tgz
+      state: absent
+      
+  - name: Recursively remove git directory
+    ansible.builtin.file:
+      path: /tmp/challenge
+      state: absent

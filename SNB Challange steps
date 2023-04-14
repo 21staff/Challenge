@@ -8,7 +8,6 @@ install python on host
 
 install pip
 
-
 Build docker container: docker build -t ansible:latest .
 Run docker container: 
 docker run -t ansible
@@ -36,4 +35,4 @@ ansible-playbook playbook.yaml -i inventory.yaml
 ssh-keygen
 ssh agent@192.168.1.21
 
-add git funtionality to be able to download and writ e the git repo of the presented code
+Add git funtionality to be able to download and write the git repo of the presented code.

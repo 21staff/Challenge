@@ -1,4 +1,11 @@
 This document describes step by step the completion of the challenge provided by SNB:
-commands in container:
+---
+Steps to start containeré
+docker build --network="host" -t ansible:latest .
+docker run -t ansible
+ssh-keygen
+ssh-copy-id agent@192.168.1.21
+---
+Commands in container:
 cd Challenge
-
+ansible virtualmachines -m ping -i inventory.yaml
